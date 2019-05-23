@@ -1,0 +1,38 @@
+#!/bin/bash
+snp_list=$1
+
+# check_file=$(head -n 1 "$snp_list")
+# if [[ -z $check_file ]] ; then
+# 	snp_list=$(cat $1 | tr '\n' ' ')
+# fi
+
+if [[ -f $snp_list ]] ; then
+	snp_list=$(cat $1 | tr '\n' ' ')
+fi
+#snp_list=$(cat $1 | tr '\n' ' ')
+#snp_list=$1
+
+cmm_db=/data/KRGDB/KRG1100_common_variants/variants1100_cmm_all.txt
+rare_db=/data/KRGDB/KRG1100_rare_variants/variants1100_rare_all.txt
+indel_db=/data/KRGDB/KRG1100_indels/variants1100_indel_all.txt
+
+
+for var in $snp_list ; do
+	match=$(awk -v var="$var" '$3==var{print $0 ; exit}' $cmm_db)
+
+	if [[ -z $match ]] ; then
+		match=$(awk -v var="$var" '$3==var{print $0 ; exit}' $rare_db)
+	fi
+
+	if [[ -z $match ]] ; then
+		match=$(awk -v var="$var" '$3==var{print $0 ; exit}' $indel_db)
+	fi
+	echo -e "$match"
+
+done
+
+
+#awk 'NR==FNR{snp_list[$0];next}$3 in snp_list{print $0 ; print FNR ; exit}' $snp_list $cmm_db
+#awk 'NR==FNR{snp_list[$0];next}$3 in snp_list' $snp_list $cmm_db
+#awk 'NR==FNR{snp_list[$0];next}$3 in snp_list' $snp_list $rare_db
+#awk 'NR==FNR{snp_list[$0];next}$3 in snp_list' $snp_list $indel_db
