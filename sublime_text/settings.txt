@@ -1,0 +1,16 @@
+{
+    "default_line_ending": "unix",
+    "translate_tabs_to_spaces": true,
+    // set vertical rulers in specified columns.
+    // Use "rulers": [80] for just one ruler
+    // default value is []
+    "rulers": [79, 80],
+
+    // turn on word wrap for source and text
+    // default value is "auto", which means off for source and on for text
+    "word_wrap": false,
+
+    // set word wrapping at this column
+    // default value is 0, meaning wrapping occurs at window width
+    //"wrap_width": 79
+}

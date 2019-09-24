@@ -1,0 +1,35 @@
+{
+    // Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, 
+    // ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+
+	"Unittest": {
+		"prefix": "import unittest",
+		"body": [
+			"import unittest",
+			"",
+			"class Test$1(unittest.TestCase):",
+			"    @classmethod",
+			"    def setUpClass(cls):",
+			"        pass",
+			"",
+			"    @classmethod",
+			"    def tearDownClass(cls):",
+			"        pass",
+			"",
+			"    def setUp(self):",
+			"        pass",
+			"",
+			"    def tearDown(self):",
+			"        pass",
+			"",
+			"    def test_(self):",
+			"        self.assertEqual(, )",
+			"",
+			"if __name__ == \"__main__\":",
+            "    unittest.main()"
+        ]
+
+	}
+}

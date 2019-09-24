@@ -29,8 +29,6 @@ PATH=$PATH:$HOME/.local/bin:$HOME/bin
 PATH=$PATH:$HOME/script/bin
 export PATH
 
-export LD_LIBRARY_PATH=/data/shared_env/lib64/R/lib:${LD_LIBRARY_PATH}
-
 umask 0027 # u=rwx,g=rx,o=
 # umask cannot make u=rwx,g=rx,o=r, which is very irritating.
 
