@@ -24,6 +24,7 @@ alias ta='tmux a -t'
 alias tl='tmux ls'
 alias tst='timestamp=$(date +"%Y%m%d") ; echo timestamp=\$\(date +\"%Y%m%d\"\)'
 alias sbrc='source ~/.bashrc ; echo "~/.bashrc sourced"'
+alias "rm"='echo "Use trash instead. If you really want to rm, do \\rm" ; false'
 
 PATH=$PATH:$HOME/.local/bin:$HOME/bin
 PATH=$PATH:$HOME/script/bin
