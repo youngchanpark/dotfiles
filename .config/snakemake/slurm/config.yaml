@@ -1,0 +1,5 @@
+cluster: "sbatch --partition=normal_q --cpus-per-task {resources.cpus_per_task} --mem={resources.mem} -o logs/slurm/{rule}_{wildcards}.o -e logs/slurm/{rule}_{wildcards}.e --time=5-0:0:0"
+default-resources: [cpus_per_task=1, mem='4G']
+keep-going: False
+use-singularity: False
+jobs: 100
